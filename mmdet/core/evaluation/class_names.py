@@ -65,21 +65,9 @@ def imagenet_vid_classes():
 
 
 def coco_classes():
-    return [
-        'person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train',
-        'truck', 'boat', 'traffic_light', 'fire_hydrant', 'stop_sign',
-        'parking_meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep',
-        'cow', 'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella',
-        'handbag', 'tie', 'suitcase', 'frisbee', 'skis', 'snowboard',
-        'sports_ball', 'kite', 'baseball_bat', 'baseball_glove', 'skateboard',
-        'surfboard', 'tennis_racket', 'bottle', 'wine_glass', 'cup', 'fork',
-        'knife', 'spoon', 'bowl', 'banana', 'apple', 'sandwich', 'orange',
-        'broccoli', 'carrot', 'hot_dog', 'pizza', 'donut', 'cake', 'chair',
-        'couch', 'potted_plant', 'bed', 'dining_table', 'toilet', 'tv',
-        'laptop', 'mouse', 'remote', 'keyboard', 'cell_phone', 'microwave',
-        'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase',
-        'scissors', 'teddy_bear', 'hair_drier', 'toothbrush'
-    ]
+    return ['长马甲', '古风', '短马甲', '背心上衣', '背带裤', '连体衣', '吊带上衣', '中裤', '短袖衬衫', '无袖上衣',
+                 '长袖衬衫', '中等半身裙', '长半身裙', '长外套', '短裙', '无袖连衣裙', '短裤', '短外套',
+                 '长袖连衣裙', '长袖上衣', '长裤', '短袖连衣裙', '短袖上衣']
 
 
 def cityscapes_classes():
