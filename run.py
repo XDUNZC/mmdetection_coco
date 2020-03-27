@@ -28,7 +28,7 @@ def get_result_box(img_path, model, score_thr=0.7):
     bboxes_over_thr = bboxes[inds]
     return bboxes_over_thr
 
-
+# todo 目前这个只支持onestage模型
 def get_feature_extractor(config_file='configs/tbtc_fater_rcnn_voc.py',
                           checkpoint_file='checkpoints/faster_rcnn_x101_64x4d_fpn_1x20200324-ba5926a5.pth',
                           device='cuda:0'):
@@ -53,10 +53,10 @@ if __name__ == '__main__':
     device = 'cuda:0'  # GPU 卡号
     model = get_model(config_file=config_file, checkpoint_file=checkpoint_file, device=device)
     img_path = 'demo/demo.jpg'
-    bboxes = get_result_box(img_path=img_path, model=model, score_thr=0.7)
+    bboxes = get_result_box(img_path=img_path, model=model, score_thr=0.7) # array，输出格式是(N,5),N个满足条件的框 每个框与5个值，前4个是位置信息，最后一个是概率值 0-1
     print(bboxes)
 
     # demo 生成feature_extractor
-    get_feature_extractor(config_file='configs/tbtc_fater_rcnn_voc.py',
-                          checkpoint_file='checkpoints/faster_rcnn_x101_64x4d_fpn_1x20200324-ba5926a5.pth',
+    get_feature_extractor(config_file='configs/tbtc_retinanet_voc.py',
+                          checkpoint_file='checkpoints/retinanet_x101_64x4d_fpn_1x20200322-53c08bb4.pth',
                           device='cuda:0')
