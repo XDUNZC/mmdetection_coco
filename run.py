@@ -1,6 +1,7 @@
-from mmdet.apis import init_detector, inference_detector
+from .mmdet.apis import init_detector, inference_detector
 import numpy as np
 import torch.nn as nn
+
 
 def get_model(config_file='configs/my.py',
               checkpoint_file='work_dirs/retinanet_x101_64x4d_fpn_1x/latest.pth',
@@ -27,6 +28,7 @@ def get_result_box(img_path, model, score_thr=0.7):
     inds = np.where(bboxes[:, -1] > score_thr)[0]
     bboxes_over_thr = bboxes[inds]
     return bboxes_over_thr
+
 
 # todo 目前这个只支持onestage模型
 def get_feature_extractor(config_file='configs/tbtc_fater_rcnn_voc.py',
@@ -63,7 +65,4 @@ if __name__ == '__main__':
     #                       device='cuda:0')
     # feature_maps = feature_extractor(img)
     # print(feature_maps)
-
-
-
 
