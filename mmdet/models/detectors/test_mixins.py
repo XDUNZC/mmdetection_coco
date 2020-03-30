@@ -119,30 +119,30 @@ class BBoxTestMixin(object):
             cfg=rcnn_test_cfg)
         return det_bboxes, det_labels
 
-    def simple_test_bboxes_feats(self,
-                           x,
-                           img_metas,
-                           proposals,
-                           rcnn_test_cfg,
-                           rescale=False):
-        """Test only det bboxes without augmentation."""
-        rois = bbox2roi(proposals)
-        roi_feats = self.bbox_roi_extractor(
-            x[:len(self.bbox_roi_extractor.featmap_strides)], rois)
-        if self.with_shared_head:
-            roi_feats = self.shared_head(roi_feats)
-        cls_score, bbox_pred = self.bbox_head(roi_feats)
-        img_shape = img_metas[0]['img_shape']
-        scale_factor = img_metas[0]['scale_factor']
-        det_bboxes, det_labels = self.bbox_head.get_det_bboxes(
-            rois,
-            cls_score,
-            bbox_pred,
-            img_shape,
-            scale_factor,
-            rescale=rescale,
-            cfg=rcnn_test_cfg)
-        return det_bboxes, det_labels,roi_feats
+    # def simple_test_bboxes_feats(self,
+    #                        x,
+    #                        img_metas,
+    #                        proposals,
+    #                        rcnn_test_cfg,
+    #                        rescale=False):
+    #     """Test only det bboxes without augmentation."""
+    #     rois = bbox2roi(proposals)
+    #     roi_feats = self.bbox_roi_extractor(
+    #         x[:len(self.bbox_roi_extractor.featmap_strides)], rois)
+    #     if self.with_shared_head:
+    #         roi_feats = self.shared_head(roi_feats)
+    #     cls_score, bbox_pred = self.bbox_head(roi_feats)
+    #     img_shape = img_metas[0]['img_shape']
+    #     scale_factor = img_metas[0]['scale_factor']
+    #     det_bboxes, det_labels = self.bbox_head.get_det_bboxes(
+    #         rois,
+    #         cls_score,
+    #         bbox_pred,
+    #         img_shape,
+    #         scale_factor,
+    #         rescale=rescale,
+    #         cfg=rcnn_test_cfg)
+    #     return det_bboxes, det_labels,roi_feats
 
 
 
